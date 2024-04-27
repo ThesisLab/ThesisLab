@@ -20,10 +20,14 @@ Set-LocalUser -Name "Administrator" -Password $Password -PasswordNeverExpires $T
 Get-WMIObject -class Win32_UserProfile | Where-Object {($_.SID -like "*-1001")} | Remove-WmiObject
 Remove-LocalUser -Name "Test"
 ``` 
-6. Document Windows 10 version:
+6. Document Windows 10 operating system major, minr and update build revision versions:
 ```
-systeminfo
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name UBR).UBR
+PS C:\Users\Administrator> systeminfo
+OS Name:                   Microsoft Windows 10 Enterprise
+OS Version:                10.0.19045 N/A Build 19045
+
+PS C:\Users\Administrator> (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name UBR).UBR
+4046
 ```
 7. Generalize Windows with SysPrep for cloning purposes and wait for host shutdown:
 ```
@@ -33,16 +37,6 @@ C:\Windows\system32\sysprep\sysprep.exe /generalize /shutdown /oobe
 9. Remove Windoows OS installation media.
    
 <br>
-
-Windows 10 operating system major, minr and update build revision versions:
-
-```
-PS C:\Users\Administrator> systeminfo
-OS Name:                   Microsoft Windows 10 Enterprise
-OS Version:                10.0.19045 N/A Build 19045
-PS C:\Users\Administrator> (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name UBR).UBR
-4046
-```
 
 The operating system version has been released on 2024-02-13:
 

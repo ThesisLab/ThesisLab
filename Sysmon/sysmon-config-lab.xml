@@ -1,0 +1,171 @@
+<Sysmon schemaversion="4.90">
+	<!--SYSMON META CONFIG-->
+	<HashAlgorithms>md5,sha256,IMPHASH</HashAlgorithms> <!-- Both MD5 and SHA256 are the industry-standard algorithms. Remove IMPHASH if you do not use DLL import fingerprinting. -->
+	<CheckRevocation/> <!-- Check loaded drivers, log if their code-signing certificate has been revoked, in case malware stole one to sign a kernel driver -->
+
+
+	<EventFiltering>
+
+	<!--NOTE: Using "include" with no rules means nothing in this section will be logged-->
+	<!--NOTE: Using "exclude" with no rules means everything in this section will be logged-->
+
+	<!--SYSMON EVENT ID 1 : PROCESS CREATION [ProcessCreate]-->
+	<RuleGroup name="" groupRelation="or">
+		<ProcessCreate onmatch="exclude">
+		</ProcessCreate>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 2 : FILE CREATION TIME RETROACTIVELY CHANGED IN THE FILESYSTEM [FileCreateTime]-->
+	<RuleGroup name="" groupRelation="or">
+		<FileCreateTime onmatch="exclude">
+		</FileCreateTime>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 3 : NETWORK CONNECTION INITIATED [NetworkConnect]-->
+	<RuleGroup name="" groupRelation="or">
+		<NetworkConnect onmatch="exclude">
+		</NetworkConnect>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 4 : RESERVED FOR SYSMON SERVICE STATUS MESSAGES-->
+
+	<!--SYSMON EVENT ID 5 : PROCESS ENDED [ProcessTerminate]-->
+	<RuleGroup name="" groupRelation="or">
+		<ProcessTerminate onmatch="exclude">
+		</ProcessTerminate>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 6 : DRIVER LOADED INTO KERNEL [DriverLoad]-->
+	<RuleGroup name="" groupRelation="or">
+		<DriverLoad onmatch="exclude">
+		</DriverLoad>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 7 : DLL (IMAGE) LOADED BY PROCESS [ImageLoad]v-->
+	<RuleGroup name="" groupRelation="or">
+		<ImageLoad onmatch="exclude">
+		</ImageLoad>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 8 : REMOTE THREAD CREATED [CreateRemoteThread]-->
+	<RuleGroup name="" groupRelation="or">
+		<CreateRemoteThread onmatch="exclude">
+		</CreateRemoteThread>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 9 : RAW DISK ACCESS [RawAccessRead]-->
+	<RuleGroup name="" groupRelation="or">
+		<RawAccessRead onmatch="exclude">
+		</RawAccessRead>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 10 : INTER-PROCESS ACCESS [ProcessAccess]-->
+	<RuleGroup name="" groupRelation="or">
+		<ProcessAccess onmatch="exclude">
+		</ProcessAccess>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 11 : FILE CREATED [FileCreate]-->
+	<RuleGroup name="" groupRelation="or">
+		<FileCreate onmatch="exclude">
+		</FileCreate>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 12 & 13 & 14 : REGISTRY MODIFICATION [RegistryEvent]-->
+		<!--EVENT 12: "Registry object added or deleted"-->
+		<!--EVENT 13: "Registry value set"-->
+		<!--EVENT 14: "Registry objected renamed"-->
+	<RuleGroup name="" groupRelation="or">
+		<RegistryEvent onmatch="exclude">
+		</RegistryEvent>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 15 : ALTERNATE DATA STREAM CREATED [FileCreateStreamHash]-->
+	<RuleGroup name="" groupRelation="or">
+		<FileCreateStreamHash onmatch="exclude">
+		</FileCreateStreamHash>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 16 : SYSMON CONFIGURATION CHANGE-->
+		<!--EVENT 16: "Sysmon config state changed"-->
+		<!--COMMENT:	This ONLY logs if the hash of the configuration changes. Running "sysmon.exe -c" with the current configuration will not be logged with Event 16-->
+
+	<!--SYSMON EVENT ID 17 & 18 : PIPE CREATED / PIPE CONNECTED [PipeEvent]-->
+		<!--EVENT 17: "Pipe Created"-->
+		<!--EVENT 18: "Pipe Connected"-->
+		<RuleGroup name="" groupRelation="or">
+			<PipeEvent onmatch="exclude">
+			</PipeEvent>
+		</RuleGroup>
+
+	<!--SYSMON EVENT ID 19 & 20 & 21 : WMI EVENT MONITORING [WmiEvent]-->
+		<!--EVENT 19: "WmiEventFilter activity detected"-->
+		<!--EVENT 20: "WmiEventConsumer activity detected"-->
+		<!--EVENT 21: "WmiEventConsumerToFilter activity detected"-->
+	<RuleGroup name="" groupRelation="or">
+		<WmiEvent onmatch="exclude">
+		</WmiEvent>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 22 : DNS QUERY [DnsQuery]-->
+	<RuleGroup name="" groupRelation="or">
+		<DnsQuery onmatch="exclude">
+		</DnsQuery>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 23 : FILE DELETE [FileDelete]-->
+		<!--"A file was deleted. Additionally to logging the event, the deleted file is also saved in the ArchiveDirectory (which is 
+			C:\Sysmon by default). Under normal operating conditions this directory might grow to an unreasonable size - see event 
+			ID 26: FileDeleteDetected for similar behavior but without saving the deleted files."-->
+	<RuleGroup name="" groupRelation="or">
+		<FileDelete onmatch="include">
+		</FileDelete>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 24 : CLIPBOARD EVENT MONITORING [ClipboardChange]-->
+	<RuleGroup name="" groupRelation="or">
+		<ClipboardChange onmatch="exclude">
+		</ClipboardChange>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 25 : PROCESS TAMPERING [ProcessTampering]-->
+	<RuleGroup name="" groupRelation="or">
+		<ProcessTampering onmatch="exclude">
+		</ProcessTampering>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 26 : FileDeleteDetected (File Delete logged)-->
+	<RuleGroup name="" groupRelation="or">
+		<FileDeleteDetected onmatch="exclude">
+		</FileDeleteDetected>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 27 : FileBlockExecutable-->
+	<!--This event is generated when Sysmon detects and blocks the creation of executable files (PE format).-->
+	<RuleGroup name="" groupRelation="or">
+		<FileBlockExecutable onmatch="include">
+		</FileBlockExecutable>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 28 : FileBlockShredding-->
+	<!--This event is generated when Sysmon detects and blocks file shredding from tools such as SDelete.-->
+	<RuleGroup name="" groupRelation="or">
+		<FileBlockShredding onmatch="include">
+		</FileBlockShredding>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 29 : FileExecutableDetected-->
+	<!--This event is generated when Sysmon detects the creation of a new executable file (PE format).-->
+	<RuleGroup name="" groupRelation="or">
+		<FileExecutableDetected onmatch="include">
+		</FileExecutableDetected>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 255 : ERROR-->
+		<!--"This event is generated when an error occurred within Sysmon. They can happen if the system is under heavy load
+			and certain tasked could not be performed or a bug exists in the Sysmon service. You can report any bugs on the
+			Sysinternals forum or over Twitter (@markrussinovich)."-->
+		<!--Cannot be filtered.-->
+
+	</EventFiltering>
+</Sysmon>

@@ -41,7 +41,7 @@ C:\Windows\system32\sysprep\sysprep.exe /generalize /shutdown /oobe
 <br>
 <br>
 
-The operating system version has been released on 13th of February 2024:
+The templave VM operating system version has been released on 13th of February 2024:
 
 | Servicing option | Availability date | Build | KB article |
 | ---------------- | ----------------- | ----- | ---------- |

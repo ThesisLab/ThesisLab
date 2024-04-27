@@ -1,6 +1,9 @@
 # Sample group Virtual Machine documentation
 
-All sample group hosts were cloned from a single VM template host. <br>
+All sample group hosts were cloned from a single VM template host. 
+
+<br>
+<br>
 
 ## VM Template configuration
 
@@ -37,6 +40,7 @@ C:\Windows\system32\sysprep\sysprep.exe /generalize /shutdown /oobe
 9. Remove Windoows OS installation media.
    
 <br>
+<br>
 
 The operating system version has been released on 13th of February 2024:
 
@@ -49,6 +53,10 @@ Windows 10 release information: https://learn.microsoft.com/en-us/windows/releas
 
 <br>
 <br>
+
+<br>
+
+## VM host configuration
 
 The below configurations were performed for each sample group host after cloning of the VM:
 

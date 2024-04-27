@@ -75,7 +75,7 @@ Remove-LocalUser -Name "Test"
 ```
 Rename-Computer -NewName "LABWKS01-10"
 ```
-5. Disable Windows Defender Tamper Protection
+5. Disable Windows Defender Tamper Protection.
 6. Restart
 7. Join host to the Active Directory domain:
 ```

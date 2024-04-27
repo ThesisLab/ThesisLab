@@ -4,7 +4,7 @@ All sample group hosts were cloned from a single VM template host.
 
 <br>
 
-## VM Template configuration
+## VM template configuration
 
 The VM template host was configured with the following steps:
 

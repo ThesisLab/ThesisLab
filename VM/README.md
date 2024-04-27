@@ -73,7 +73,7 @@ Remove-LocalUser -Name "Test"
 ```
 4. Rename host: 
 ```
-Rename-Computer -NewName "LABWKS99"
+Rename-Computer -NewName "LABWKS01-10"
 ```
 5. Disable Windows Defender Tamper Protection
 6. Restart

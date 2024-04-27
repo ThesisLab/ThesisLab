@@ -8,5 +8,5 @@ Group Policy Object export PowerShell commands:
 
 The exported GPO configuration is available as HTML and XML files:
 
-[GPOReport.html](GPOReport.html) <br />
-[GPOReport.xml](GPOReport.xml)
+- [GPOReport.html](GPOReport.html) <br />
+- [GPOReport.xml](GPOReport.xml)

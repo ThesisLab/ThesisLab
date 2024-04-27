@@ -36,7 +36,7 @@ PS C:\Users\Administrator> (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Win
 C:\Windows\system32\sysprep\sysprep.exe /generalize /shutdown /oobe
 ```
 8. Change VM network adapter to Lab network.
-9. Remove Windoows OS installation media.
+9. Remove Windows OS installation media.
    
 <br>
 <br>

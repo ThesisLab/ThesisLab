@@ -3,6 +3,8 @@
 - Sysmon agent installation and configuration has been done with [Sysmon-installation.ps1](Sysmon-installation.ps1) file.
 - The [sysmon-config-lab.xml](sysmon-config-lab.xml) contains the Sysmon agent configuration file.
 
+<br>
+
 The SHA256 hash validation of the Sysmon64.exe binary with PowerShell:
 
 ```

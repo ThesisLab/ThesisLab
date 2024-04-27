@@ -4,7 +4,7 @@ Organizational Unit export PowerShell command:
 
 > Get-ADOrganizationalUnit -Filter 'Name -like "*"' | Format-Table Name, DistinguishedName -A
 >
-> Name               DistinguishedName
+> Name   DistinguishedName
 >              
 > Domain Controllers OU=Domain Controllers,DC=lab,DC=local <br />
 > Lab                OU=Lab,DC=lab,DC=local <br />

@@ -83,8 +83,8 @@ Add-Computer -DomainName lab.local -OUPath "OU=Workstations,OU=Computers,OU=LAB,
 ```
 8. Restart
 9. Restart
-10. Add secoond network adapter with NAT configuration
+10. Add a second network adapter with NAT configuration.
 11. Install EDR agent.
-12. Power off & create a vanilla snapshot.
+12. Power off and create a vanilla snapshot.
 
 

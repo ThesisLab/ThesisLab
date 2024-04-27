@@ -38,7 +38,7 @@ C:\Windows\system32\sysprep\sysprep.exe /generalize /shutdown /oobe
    
 <br>
 
-The operating system version has been released on 2024-02-13:
+The operating system version has been released on 13th of February 2024:
 
 | Servicing option | Availability date | Build | KB article |
 | ---------------- | ----------------- | ----- | ---------- |

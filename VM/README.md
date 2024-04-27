@@ -5,7 +5,7 @@ The VM template host was configured with the following steps:
 
 1. Install Windows updates and reboot.
 2. Install virtualization tools.
-3. Enable local administrator account with set password and confifure password to enver expire:
+3. Enable local administrator account with set password and configure password to never expire:
 ```
 Enable-LocalUser -Name "Administrator"
 $Password = Read-Host -AsSecureString

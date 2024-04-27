@@ -3,7 +3,6 @@
 All sample group hosts were cloned from a single VM template host. 
 
 <br>
-<br>
 
 ## VM Template configuration
 
@@ -60,6 +59,32 @@ Windows 10 release information: https://learn.microsoft.com/en-us/windows/releas
 
 The below configurations were performed for each sample group host after cloning of the VM:
 
-
+1. Enable local administrator account with set password and configure password to never expire:
+```
+Enable-LocalUser -Name "Administrator"
+$Password = Read-Host -AsSecureString
+Set-LocalUser -Name "Administrator" -Password $Password -PasswordNeverExpires $True
+``` 
+2. Logout from temporary account and login with local administrator account.
+3. Remove temporary account:
+```
+Get-WMIObject -class Win32_UserProfile | Where-Object {($_.SID -like "*-1003")} | Remove-WmiObject
+Remove-LocalUser -Name "Test"
+```
+4. Rename host: 
+```
+Rename-Computer -NewName "LABWKS99"
+```
+5. Disable Windows Defender Tamper Protection
+6. Restart
+7. Join host to the Active Directory domain:
+```
+Add-Computer -DomainName lab.local -OUPath "OU=Workstations,OU=Computers,OU=LAB,DC=lab,DC=local"
+```
+8. Restart
+9. Restart
+10. Add secoond network adapter with NAT configuration
+11. Install EDR agent.
+12. Power off & create a vanilla snapshot.
 
 

@@ -1,6 +1,6 @@
 # Sample group Virtual Machine documentation
 
-All of the sample group hosts were cloned from a single VM template host. <br>
+All sample group hosts were cloned from a single VM template host. <br>
 The VM template host was configured with the below steps:
 
 <br>

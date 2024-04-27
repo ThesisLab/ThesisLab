@@ -1,7 +1,7 @@
 # Sample group Virtual Machine documentation
 
 All sample group hosts were cloned from a single VM template host. <br>
-The VM template host was configured with the below steps:
+The VM template host was configured with the following steps:
 
 1. Install Windows updates and reboot.
 2. Install virtualization tools.

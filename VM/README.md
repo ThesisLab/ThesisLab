@@ -20,7 +20,7 @@ Set-LocalUser -Name "Administrator" -Password $Password -PasswordNeverExpires $T
 Get-WMIObject -class Win32_UserProfile | Where-Object {($_.SID -like "*-1001")} | Remove-WmiObject
 Remove-LocalUser -Name "Test"
 ``` 
-6. Document Windows 10 operating system major, minr and update build revision versions:
+6. Document Windows 10 operating system major, minor, and update build revision versions:
 ```
 PS C:\Users\Administrator> systeminfo
 OS Name:                   Microsoft Windows 10 Enterprise

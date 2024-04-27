@@ -46,8 +46,12 @@ PS C:\Users\Administrator> (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Win
 
 The operating system version has been released on 2024-02-13:
 
-Servicing option &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; Availability date 	Build 	KB article<br>
-General Availability Channel &ensp; &ensp; &ensp; &ensp; 2024-02-13 	19045.4046 	KB5034763
+Servicing option Availability date 	Build 	KB article<br>
+General Availability Channel 2024-02-13 	19045.4046 	KB5034763
+
+| Servicing option | Availability date | Build | KB article |
+| ---------------- | ----------------- | ----- | ---------- |
+| General Availability Channel | 2024-02-13 | 19045.4046 | KB5034763
 
 https://learn.microsoft.com/en-us/windows/release-health/release-information
 
